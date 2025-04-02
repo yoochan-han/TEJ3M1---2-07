@@ -1,7 +1,8 @@
 /*
   created on Mar 2025
   by yoochan Han
-  This program print distance in serial with SONAR
+  This program print distance in serial with SONAR and if distance is less than 50cm it will activate 
+  servo motor
 */
 #include <Servo.h>
 
@@ -14,17 +15,17 @@ float duration;
 float distance;
 
 void setup() {
-// setup servo pins
-  servoNumber1.attach(4);
-  servoNumber1.write(0);
-// setup the SONAR
-  pinMode(TRIG_PIN, OUTPUT);
-  pinMode(ECHO_PIN, INPUT);
-  Serial.begin(9600);
+	// setup servo pins
+  	servoNumber1.attach(4);
+ 	 servoNumber1.write(0);
+	// setup the SONAR
+  	pinMode(TRIG_PIN, OUTPUT);
+  	pinMode(ECHO_PIN, INPUT);
+  	Serial.begin(9600);
 }
 
 void loop() {
-  digitalWrite(TRIG_PIN, LOW);
+  	digitalWrite(TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(TRIG_PIN, HIGH);
     delayMicroseconds(10);

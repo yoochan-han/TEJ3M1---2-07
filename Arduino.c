@@ -15,17 +15,17 @@ float duration;
 float distance;
 
 void setup() {
-	// setup servo pins
-  	servoNumber1.attach(4);
- 	 servoNumber1.write(0);
-	// setup the SONAR
-  	pinMode(TRIG_PIN, OUTPUT);
-  	pinMode(ECHO_PIN, INPUT);
-  	Serial.begin(9600);
+    // setup servo pins
+    servoNumber1.attach(4);
+    servoNumber1.write(0);
+    // setup the SONAR
+    pinMode(TRIG_PIN, OUTPUT);
+    pinMode(ECHO_PIN, INPUT);
+    Serial.begin(9600);
 }
 
 void loop() {
-  	digitalWrite(TRIG_PIN, LOW);
+    digitalWrite(TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(TRIG_PIN, HIGH);
     delayMicroseconds(10);
@@ -36,12 +36,11 @@ void loop() {
     Serial.print("Distance : ");
     Serial.print(String(distance) + " cm\n");
     if(distance <= 50) {
-  	// servo
-    servoNumber1.write(180);
-    delay(2000);
-    servoNumber1.write(0);
-    delay(2000);
+        // servo
+        servoNumber1.write(180);
+        delay(2000);
     } else {
-    delay(100);
+        servoNumber1.write(0);
+        delay(2000);
     }
 }
